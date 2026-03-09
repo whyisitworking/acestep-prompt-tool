@@ -2,7 +2,7 @@
 
 > A minimalist tool that helps you generate studio-quality inputs for [ACE-Step 1.5](https://github.com/ace-step/ACE-Step) — the open-source, locally-runnable AI music generation system.
 
-**[🚀 Live Demo](https://whyisitworking.github.io/acestep-prompt-tool)** · **[Report a Bug](https://github.com/your-username/acestep-prompt-tool/issues)** · **[Request a Feature](https://github.com/your-username/acestep-prompt-tool/issues)**
+**[🚀 Live Demo](https://whyisitworking.github.io/acestep-prompt-tool)** · **[Report a Bug](https://github.com/whyisitworking/acestep-prompt-tool/issues)** · **[Request a Feature](https://github.com/whyisitworking/acestep-prompt-tool/issues)**
 
 ---
 
@@ -67,7 +67,7 @@ Step-by-step guide and tips for getting the best results.
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/your-username/acestep-prompt-tool.git
+git clone https://github.com/whyisitworking/acestep-prompt-tool.git
 cd acestep-prompt-tool
 
 # 2. Install dependencies
@@ -111,7 +111,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/acestep-prompt-tool/', // ← your repo name here
+  base: '/your-repo-name/', // ← your repo name here
 })
 ```
 
@@ -150,7 +150,7 @@ This builds the app, then pushes the `dist/` folder to a `gh-pages` branch in yo
 3. Select the `gh-pages` branch, `/ (root)` folder
 4. Click **Save**
 
-Your site will be live at `https://your-username.github.io/acestep-prompt-tool/` within a minute or two.
+Your site will be live at `https://whyisitworking.github.io/acestep-prompt-tool/` within a minute or two.
 
 > **Tip:** Every time you want to push an update, just run `npm run deploy` again. Done.
 
