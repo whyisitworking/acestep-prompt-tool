@@ -20,7 +20,7 @@ export default function App() {
   return (
     <div className="app-container">
       <Header />
-      
+
       <main className="main-content">
         <Tabs tab={tab} setTab={setTab} />
 
@@ -48,6 +48,10 @@ export default function App() {
           {tab === "guide" && <Guide />}
         </div>
       </main>
+
+      <footer className="app-footer">
+        Made with ❤️ by Suhel Chakraborty
+      </footer>
     </div>
   );
 }

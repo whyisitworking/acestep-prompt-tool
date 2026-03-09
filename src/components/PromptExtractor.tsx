@@ -64,24 +64,17 @@ export default function PromptExtractor({
           value={llmOutput}
           onChange={(e) => setLlmOutput(e.target.value)}
           placeholder="Paste the full response from your LLM here. Fields are extracted automatically below."
-          className="text-input monospace-input"
-          style={{ minHeight: "120px", marginBottom: "16px" }}
+          className="text-input monospace-input textarea-lg"
         />
-        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "32px" }}>
+        
+        <div className="download-action-container">
           <button
             onClick={handleDownloadJson}
             disabled={!hasValidData}
-            className={`copy-prompt-btn glass-panel ${!hasValidData ? "disabled" : ""}`}
-            style={{ 
-              width: "auto", 
-              margin: 0, 
-              padding: "8px 16px", 
-              fontSize: "0.9rem",
-              opacity: hasValidData ? 1 : 0.5,
-              cursor: hasValidData ? "pointer" : "not-allowed"
-            }}
+            className={`copy-btn ${hasValidData ? "copied" : ""}`}
+            title={hasValidData ? "Download JSON File" : "Paste a valid response first"}
           >
-            ↓ Download JSON
+            {hasValidData ? "Download JSON" : "Waiting for valid data..."}
           </button>
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function Guide() {
         </div>
       </div>
 
-      <div className="guide-section" style={{ marginTop: "40px" }}>
+      <div className="guide-section mt-2-5">
         <label className="input-label">Tips</label>
         <div className="tips-list">
           {TIPS.map((tip, i) => (

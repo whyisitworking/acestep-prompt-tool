@@ -36,8 +36,7 @@ export default function PromptBuilder({
           value={concept}
           onChange={(e) => setConcept(e.target.value)}
           placeholder="e.g. A melancholy late-night jazz song about a relationship drifting apart"
-          className="text-input"
-          style={{ minHeight: "80px" }}
+          className="text-input textarea-md scrollbar-hide"
         />
       </div>
 
@@ -56,24 +55,26 @@ export default function PromptBuilder({
         </div>
       </div>
 
-      <div className="input-group" style={{ marginTop: "24px" }}>
-        <label className="input-label">Optional: Song Style & Influences</label>
+      <div className="input-group mt-1-5">
+        <label className="input-label">
+          Song Style & Influences (Optional)
+        </label>
         <textarea
           value={songStyle}
           onChange={(e) => setSongStyle(e.target.value)}
           placeholder="e.g. 80s synthwave, heavy 808s, bright brass, warm tape saturation... (Strongly steers the generated style)"
-          className="text-input"
-          style={{ minHeight: "60px" }}
+          className="text-input textarea-sm scrollbar-hide"
         />
       </div>
 
-      <div className="input-group" style={{ marginTop: "24px" }}>
-        <label className="input-label">Vocal Language</label>
+      <div className="input-group mt-1-5">
+        <label className="input-label">
+          Vocal Language
+        </label>
         <select
           value={language}
           onChange={(e) => setLanguage(e.target.value)}
-          className="text-input"
-          style={{ width: "100%", padding: "12px", borderRadius: "12px" }}
+          className="select-input"
         >
           <option value="automatic">Automatic (Infer from Concept & Lyrics)</option>
           {Object.entries(LANGUAGES).map(([code, name]) => (

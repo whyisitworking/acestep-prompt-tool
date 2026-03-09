@@ -1,6 +1,6 @@
-# 🎵 ACE-Step Song Prompt Tool
+# 🎵 ACE-Step 1.5 Song Prompt Builder
 
-> A minimalist tool that helps you generate studio-quality inputs for [ACE-Step 1.5](https://github.com/ace-step/ACE-Step) — the open-source, locally-runnable AI music generation system.
+> _A minimalist tool I built to help you generate studio-quality inputs for [ACE-Step 1.5](https://github.com/ace-step/ACE-Step-1.5) — the phenomenal open-source, locally-runnable AI music generation system._
 
 **[🚀 Live Demo](https://whyisitworking.github.io/acestep-prompt-tool)** · **[Report a Bug](https://github.com/whyisitworking/acestep-prompt-tool/issues)** · **[Request a Feature](https://github.com/whyisitworking/acestep-prompt-tool/issues)**
 
@@ -12,12 +12,12 @@
 
 ## What is this?
 
-ACE-Step 1.5 is powerful, but writing great inputs for it — a detailed caption, structured lyrics, and the right metadata — takes real thought. Get it wrong and you get bland output. Get it right and you get something genuinely surprising.
+ACE-Step 1.5 is a truly incredible piece of open-source engineering, but writing great inputs for it — a detailed caption, structured lyrics, and the right metadata — takes real thought. Get it wrong and you get bland output. Get it right and you get something genuinely surprising.
 
-This tool solves the blank-page problem. You describe a song in plain English, it generates a precision prompt for any LLM (Claude, ChatGPT, Gemini), and then parses the LLM's response into individual copy-paste boxes — one per ACE-Step field. No reformatting, no copy-paste gymnastics.
+This tool solves the blank-page problem. You describe a song in plain English, it generates a precision prompt for any LLM (Claude, ChatGPT, Gemini), and then parses the LLM's response into individual copy-paste boxes — one per ACE-Step 1.5 field. No reformatting, no copy-paste gymnastics.
 
 **The workflow in one line:**
-> Describe a song → copy a prompt → paste the LLM response → copy fields directly into ACE-Step.
+> Describe a song → copy a prompt → paste the LLM response → copy fields directly into ACE-Step 1.5.
 
 ---
 
@@ -27,7 +27,7 @@ This tool solves the blank-page problem. You describe a song in plain English, i
 - **Smart field parser** — paste the LLM's full response and every field is extracted automatically
 - **Language selection** — support for 50+ languages ensuring culturally coherent tracks natively
 - **JSON Export** — immediately download the extracted prompt as a fully mapped `.json` file
-- **Per-field copy buttons** — one click copies exactly what goes into each ACE-Step field
+- **Per-field copy buttons** — one click copies exactly what goes into each ACE-Step 1.5 field
 - **Example concepts** — six clickable starters to get you going fast
 - **Zero dependencies at runtime** — plain React, no backend, no API keys
 - **Dark mode** — because you'll be running this at 1am making music
@@ -42,7 +42,7 @@ Type your song concept — anything from a single mood word to a detailed paragr
 ### Tab 2 · Extract Fields
 Paste the LLM's full response. The tool automatically extracts all 8 fields:
 
-| Field | ACE-Step Input |
+| Field | ACE-Step 1.5 Input |
 |---|---|
 | Caption | The single most important input — style, instruments, emotion, timbre |
 | Lyrics | Structure-tagged lyric script with section and performance markers |
@@ -59,108 +59,6 @@ Once extracted, you can either:
 
 ### Tab 3 · How It Works
 Step-by-step guide and tips for getting the best results.
-
-## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) v18 or later
-- npm v9 or later
-
-### Installation
-
-```bash
-# 1. Clone the repo
-git clone https://github.com/whyisitworking/acestep-prompt-tool.git
-cd acestep-prompt-tool
-
-# 2. Install dependencies
-npm install
-
-# 3. Start the dev server
-npm run dev
-```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-### Project Structure
-
-```
-acestep-prompt-tool/
-├── src/
-│   ├── App.tsx          # The entire app — single component file
-│   └── main.tsx         # React entry point
-├── public/
-│   └── screenshot.png   # README screenshot (add your own)
-├── index.html
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-└── README.md
-```
-
----
-
-## Deploying to GitHub Pages
-
-This app is a pure static site (no server needed), which makes GitHub Pages a perfect host.
-
-### Step 1 — Set the base path in Vite
-
-In `vite.config.ts`, set the `base` to your repo name:
-
-```ts
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [react()],
-  base: '/your-repo-name/', // ← your repo name here
-})
-```
-
-### Step 2 — Add the deploy script
-
-Install the `gh-pages` package:
-
-```bash
-npm install --save-dev gh-pages
-```
-
-Add these scripts to your `package.json`:
-
-```json
-"scripts": {
-  "dev": "vite",
-  "build": "tsc && vite build",
-  "preview": "vite preview",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-}
-```
-
-### Step 3 — Deploy
-
-```bash
-npm run deploy
-```
-
-This builds the app, then pushes the `dist/` folder to a `gh-pages` branch in your repo.
-
-### Step 4 — Enable GitHub Pages
-
-1. Go to your repo on GitHub → **Settings** → **Pages**
-2. Under **Source**, select **Deploy from a branch**
-3. Select the `gh-pages` branch, `/ (root)` folder
-4. Click **Save**
-
-Your site will be live at `https://whyisitworking.github.io/acestep-prompt-tool/` within a minute or two.
-
-> **Tip:** Every time you want to push an update, just run `npm run deploy` again. Done.
-
-### Alternative: Deploy to Vercel or Netlify
-
-Both platforms auto-detect Vite projects and handle deployment with zero config — just connect your GitHub repo and push. No base path changes needed.
 
 ---
 
@@ -186,11 +84,11 @@ The more specific you are about **mood + genre + instrument feel + subject**, th
 - For instrumental music, explicitly say "no vocals" in your concept.
 - Reference a specific era if you have one in mind — "late 90s UK garage" tells the LLM far more than "electronic".
 
-**On ACE-Step generation:**
+**On ACE-Step 1.5 generation:**
 - Run 4–8 generations with the same inputs, varying the random seed. The best result is rarely the first one.
-- Use ACE-Step's **Cover mode** to keep the song's structure while changing style — great for exploring variants.
+- Use ACE-Step 1.5's **Cover mode** to keep the song's structure while changing style — great for exploring variants.
 - Use **Repaint** to fix a specific section without regenerating the whole song.
-- Enable **thinking mode** in ACE-Step for the best metadata inference.
+- Enable **thinking mode** in ACE-Step 1.5 for the best metadata inference.
 
 **On the LLM you use:**
 - Claude 3.5 Sonnet or later, GPT-4o, and Gemini 1.5 Pro all handle this prompt well.
@@ -224,16 +122,16 @@ For significant changes, please open an issue first to discuss what you'd like t
 
 ## Related
 
-- [ACE-Step](https://github.com/ace-step/ACE-Step) — the AI music generation system this tool is built for
-- [ACE-Step Tutorial](https://github.com/ace-step/ACE-Step/blob/main/docs/en/Tutorial.md) — the official guide that inspired the prompt template
+- [ACE-Step 1.5](https://github.com/ace-step/ACE-Step-1.5) — the AI music generation system this tool is built for
+- [ACE-Step 1.5 Ultimate Guide](https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/Tutorial.md) — the official guide that inspired the prompt template
 - [The Complete Guide to Mastering Suno](https://www.notion.so/The-Complete-Guide-to-Mastering-Suno-Advanced-Strategies-for-Professional-Music-Generation-2d6ae744ebdf8024be42f6645f884221) — prompting ideas that apply to ACE-Step too
 
 ---
 
 ## License
 
-[MIT](./LICENSE) — do whatever you want with it.
+[MIT](./LICENSE) — do whatever you want with it 🙌.
 
 ---
 
-Made with ❤️ for people who want to make music, not fight with prompts.
+Made with ❤️ by Suhel Chakraborty
