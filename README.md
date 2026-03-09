@@ -26,7 +26,7 @@ This tool solves the blank-page problem. You describe a song in plain English, i
 - **Live prompt generation** — your concept is embedded into the template as you type
 - **Smart field parser** — paste the LLM's full response and every field is extracted automatically
 - **Language selection** — support for 50+ languages ensuring culturally coherent tracks natively
-- **JSON Export** — immediately download the extracted prompt as a fully mapped `.json` file
+- **Strict rule enforcement** — prevents lyric tag stacking, mixed metaphors, and structural conflicts automatically
 - **Per-field copy buttons** — one click copies exactly what goes into each ACE-Step 1.5 field
 - **Example concepts** — six clickable starters to get you going fast
 - **Zero dependencies at runtime** — plain React, no backend, no API keys

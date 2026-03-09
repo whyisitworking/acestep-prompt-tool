@@ -11,10 +11,11 @@ export default function App() {
   const [concept, setConcept] = useState("");
   const [songStyle, setSongStyle] = useState("");
   const [language, setLanguage] = useState("automatic");
+  const [lyricsDepth, setLyricsDepth] = useState<"literal" | "balanced" | "metaphorical">("balanced");
   const [llmOutput, setLlmOutput] = useState("");
   const [tab, setTab] = useState<"build" | "extract" | "guide">("build");
 
-  const prompt = buildPrompt(concept, songStyle, language);
+  const prompt = buildPrompt(concept, songStyle, language, lyricsDepth);
   const parsed = llmOutput ? parseOutput(llmOutput) : {};
 
   return (
@@ -33,6 +34,8 @@ export default function App() {
               setSongStyle={setSongStyle}
               language={language}
               setLanguage={setLanguage}
+              lyricsDepth={lyricsDepth}
+              setLyricsDepth={setLyricsDepth}
               prompt={prompt}
             />
           )}

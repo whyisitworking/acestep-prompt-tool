@@ -99,6 +99,41 @@ body {
   line-height: 1.5;
 }
 
+/* Depth Toggle */
+.depth-toggle-container {
+  display: flex;
+  background: var(--input-bg);
+  padding: 0.25rem;
+  border-radius: var(--radius-md);
+  gap: 0.25rem;
+  border: 1px solid var(--panel-border);
+}
+
+.depth-toggle-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  font-size: 0.8125rem;
+  padding: 0.625rem 0.5rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  font-family: inherit;
+}
+
+.depth-toggle-btn.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.depth-toggle-btn:hover:not(.active) {
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
 /* Main Content */
 .main-content {
   flex: 1;

@@ -1,6 +1,11 @@
 import { FIELDS, LANGUAGES } from "./constants";
 
-export function buildPrompt(concept: string, songStyle: string = "", language: string = "automatic"): string {
+export function buildPrompt(
+  concept: string, 
+  songStyle: string = "", 
+  language: string = "automatic",
+  lyricsDepth: "literal" | "balanced" | "metaphorical" = "balanced"
+): string {
   const filledConcept = concept.trim() || "[No concept provided — infer a compelling direction from context]";
   
   const styleInstruction = songStyle.trim() 
@@ -24,25 +29,34 @@ Generate ALL fields below. Format your response EXACTLY as shown in OUTPUT FORMA
 ## FIELD SPECIFICATIONS
 
 ### CAPTION (most important)
-The global portrait of the song: genre, emotion, specific instruments with texture descriptors, vocal character, production/mixing style, era reference.
+The global portrait of the song. You must describe the following 9 dimensions if applicable: Style/Genre, Emotion/Atmosphere, Instruments, Timbre Texture, Era Reference, Production Style, Vocal Characteristics, Speed/Rhythm, and Structure Hints.
 - 80–150 words, written as flowing prose (not a list)
 - Do NOT include BPM numbers, key names, or time signatures — those go in their own fields
-- Cover at least 6 of these dimensions: genre/subgenre, emotional atmosphere, instruments, vocal character, production style, era reference, tempo feel
-- **CRITICAL**: Use specific texture words (e.g., warm, crisp, airy, punchy, muddy, raw). 'Specific beats vague' is the rule.
-- **CRITICAL**: Do NOT include conflicting descriptors simultaneously (e.g. classical strings + hardcore metal) unless properly evolved over time.
+- Cover at least 6 of the 9 dimensions mentioned above.
+- **CRITICAL**: Use specific texture words (e.g., warm, crisp, airy, punchy, muddy, raw).
+- **CRITICAL**: Do NOT include conflicting descriptors simultaneously (e.g. classical strings + hardcore metal). Resolve style conflicts through temporal evolution (e.g., "Start with soft strings, middle becomes dynamic metal rock").
 
 ### LYRICS
 The temporal script: structure tags control sections, lyric text carries content, performance modifiers control delivery.
-- Sections: [Intro], [Verse 1], [Pre-Chorus], [Chorus], [Verse 2], [Bridge], [Final Chorus], [Outro]
-- Keep structure tags concise. One optional performance modifier per tag, separated by " - " (e.g. [Chorus - anthemic])
+- Basic Structure Tags: [Intro], [Verse], [Pre-Chorus], [Chorus], [Bridge], [Outro]
+- Dynamic/Instrumental Tags: [Build], [Drop], [Breakdown], [Instrumental], [Guitar Solo], [Piano Interlude], [Fade Out]
+- Vocal Control Tags: [raspy vocal], [whispered], [falsetto], [powerful belting], [spoken word], [harmonies]
+- Energy/Emotion Tags: [high energy], [building energy], [explosive], [melancholic], [euphoric]
+- Keep structure tags concise. Combine at most ONE modifier per tag, separated by " - " (e.g. [Chorus - anthemic], [Violin Solo - expressive]).
 - Blank line between every section
-- **CRITICAL**: 6–10 syllables per line; keep counts strictly consistent within matching positions across verses.
+- **CRITICAL**: 6–10 syllables per line. Keep similar syllable counts for lines in the same position across verses (±1-2 deviation allowed).
 - UPPERCASE only at peak emotional moments to indicate vocal intensity.
 - (Parentheses) for background/harmony vocals.
 - No stacked modifiers on tags; put complex style details in Caption.
 - **CRITICAL**: Ensure Lyrics match the Style and Emotion defined in Caption (No Conflicts).
+- **Checklist**: Instruments in Caption MUST match Instrumental section tags in Lyrics. Emotion in Caption MUST match Energy tags in Lyrics.
 - No AI-cliché phrases: "neon skies", "electric hearts", "endless dreams", "chase the light".
-- Stick to a single consistent metaphor thread throughout the song.
+${lyricsDepth === "literal" 
+  ? "- **CRITICAL**: Write the lyrics very plainly and literally. Focus strictly on direct storytelling without heavy symbolism or abstract poetry." 
+  : lyricsDepth === "metaphorical" 
+  ? "- **CRITICAL**: Focus heavily on deep symbolism, metaphors, and poetic imagery to communicate the underlying thoughts. Avoid plain or literal storytelling."
+  : "- Balance the lyrics carefully between direct storytelling and subtle poetic imagery."}
+- Stick to a single consistent metaphor thread throughout the song (if applicable).
 
 ### BPM
 Single integer. Slow ballad 60–80 · Mid-tempo 85–110 · Upbeat 115–140 · Dance 120–145 · Fast 150+
@@ -104,9 +118,10 @@ DURATION (seconds):
 - Caption covers 6+ musical dimensions
 - BPM and key are NOT in Caption
 - Lyrics have 6–8 labeled sections
-- Each tag has at most one modifier
+- Each tag has at most one modifier (No stacked tags)
 - Caption and Lyrics are stylistically coherent, no contradictions
-- No AI-cliché phrases in lyrics`;
+- No AI-cliché phrases in lyrics
+- Syllable counts are rigidly structured at 6-10 per line`;
 }
 
 export function parseOutput(raw: string): Record<string, string> {

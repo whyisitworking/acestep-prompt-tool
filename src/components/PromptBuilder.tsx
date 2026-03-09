@@ -8,6 +8,8 @@ interface PromptBuilderProps {
   setSongStyle: (val: string) => void;
   language: string;
   setLanguage: (val: string) => void;
+  lyricsDepth: "literal" | "balanced" | "metaphorical";
+  setLyricsDepth: (val: "literal" | "balanced" | "metaphorical") => void;
   prompt: string;
 }
 
@@ -18,6 +20,8 @@ export default function PromptBuilder({
   setSongStyle,
   language,
   setLanguage,
+  lyricsDepth,
+  setLyricsDepth,
   prompt,
 }: PromptBuilderProps) {
   const [promptCopied, setPromptCopied] = useState(false);
@@ -38,6 +42,21 @@ export default function PromptBuilder({
           placeholder="e.g. A melancholy late-night jazz song about a relationship drifting apart"
           className="text-input textarea-md scrollbar-hide"
         />
+      </div>
+
+      <div className="input-group">
+        <label className="input-label">Lyrics Depth</label>
+        <div className="depth-toggle-container">
+          {(["literal", "balanced", "metaphorical"] as const).map((depth) => (
+            <button
+              key={depth}
+              onClick={() => setLyricsDepth(depth)}
+              className={`depth-toggle-btn ${lyricsDepth === depth ? "active" : ""}`}
+            >
+              {depth.charAt(0).toUpperCase() + depth.slice(1)}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="examples-container">
