@@ -113,7 +113,7 @@ export default function PromptBuilder({
 
       <button
         onClick={handlePromptCopy}
-        className={`copy-prompt-btn ${promptCopied ? "success glass-panel" : "glass-panel"}`}
+        className={`copy-prompt-btn bordered-glass-panel ${promptCopied ? "success" : ""}`}
       >
         {promptCopied ? "Copied — now paste into your LLM ✓" : "Copy prompt"}
       </button>

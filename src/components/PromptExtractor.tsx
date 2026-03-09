@@ -13,7 +13,7 @@ export default function PromptExtractor({
   parsed,
 }: PromptExtractorProps) {
   const hasValidData = Object.keys(parsed).length > 0 && !!parsed["CAPTION"];
-  
+
   const handleDownloadJson = () => {
     // Reverse map full language names to codes
     const reverseLangMap = Object.entries(LANGUAGES).reduce((acc, [code, name]) => {
@@ -37,7 +37,7 @@ export default function PromptExtractor({
 
     const blob = new Blob([JSON.stringify(jsonToExport, null, 4)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
-    
+
     // Create dynamic filename
     let fileName = "acestep_prompt.json";
     if (jsonToExport.caption) {
@@ -66,12 +66,12 @@ export default function PromptExtractor({
           placeholder="Paste the full response from your LLM here. Fields are extracted automatically below."
           className="text-input monospace-input textarea-lg"
         />
-        
+
         <div className="download-action-container">
           <button
             onClick={handleDownloadJson}
             disabled={!hasValidData}
-            className="copy-prompt-btn glass-panel download-json-btn"
+            className="copy-prompt-btn bordered-glass-panel download-json-btn"
             title={hasValidData ? "Download JSON File" : "Paste a valid response first"}
           >
             ↓ Download JSON

@@ -38,12 +38,19 @@ body {
   min-height: 100vh;
 }
 
-/* Base Classes */
-.glass-panel {
+.top-glass-panel {
   background: var(--panel-bg);
   backdrop-filter: blur(1.5rem);
   -webkit-backdrop-filter: blur(1.5rem);
   border-bottom: 1px solid var(--panel-border);
+}
+
+/* Base Classes */
+.bordered-glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(1.5rem);
+  -webkit-backdrop-filter: blur(1.5rem);
+  border: 1px solid var(--panel-border);
 }
 
 .shadow-lg {
@@ -315,7 +322,6 @@ body {
 .copy-prompt-btn:not(.success):hover {
   background: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-1px);
 }
 
 .copy-prompt-btn.success {

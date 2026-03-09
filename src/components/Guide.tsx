@@ -8,7 +8,7 @@ export default function Guide() {
         <div className="steps-list">
           {STEPS.map((s) => (
             <div key={s.n} className="step-item">
-              <div className="step-number glass-panel">{s.n}</div>
+              <div className="step-number bordered-glass-panel">{s.n}</div>
               <div className="step-content">
                 <h3 className="step-title">{s.title}</h3>
                 <p className="step-body">{s.body}</p>
@@ -22,7 +22,7 @@ export default function Guide() {
         <label className="input-label">Tips</label>
         <div className="tips-list">
           {TIPS.map((tip, i) => (
-            <div key={i} className="tip-item glass-panel">
+            <div key={i} className="tip-item bordered-glass-panel">
               <span className="tip-bullet">—</span>
               <span className="tip-text">{tip}</span>
             </div>

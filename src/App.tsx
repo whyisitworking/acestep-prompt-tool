@@ -25,7 +25,7 @@ export default function App() {
       <main className="main-content">
         <Tabs tab={tab} setTab={setTab} />
 
-        <div className="tab-content-wrapper glass-panel shadow-lg">
+        <div className="tab-content-wrapper bordered-glass-panel shadow-lg">
           {tab === "build" && (
             <PromptBuilder
               concept={concept}

@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header className="app-header glass-panel">
+    <header className="app-header top-glass-panel">
       <div className="header-content">
         <div className="header-subtitle header-subtitle-wrapper">ACE-Step 1.5 Companion</div>
         <div className="header-title-container">

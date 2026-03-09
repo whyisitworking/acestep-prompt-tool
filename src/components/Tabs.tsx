@@ -8,7 +8,7 @@ interface TabsProps {
 export default function Tabs({ tab, setTab }: TabsProps) {
   return (
     <div className="tabs-container">
-      <div className="tabs-wrapper glass-panel">
+      <div className="tabs-wrapper bordered-glass-panel">
         <button
           className={`tab-btn ${tab === "build" ? "active" : ""}`}
           onClick={() => setTab("build")}
