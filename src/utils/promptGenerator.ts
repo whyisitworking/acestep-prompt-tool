@@ -1,6 +1,6 @@
-import { FIELDS } from "./constants";
+import { FIELDS, LANGUAGES } from "./constants";
 
-export function buildPrompt(concept: string, songStyle: string = ""): string {
+export function buildPrompt(concept: string, songStyle: string = "", language: string = "automatic"): string {
   const filledConcept = concept.trim() || "[No concept provided — infer a compelling direction from context]";
   
   const styleInstruction = songStyle.trim() 
@@ -24,23 +24,25 @@ Generate ALL fields below. Format your response EXACTLY as shown in OUTPUT FORMA
 ## FIELD SPECIFICATIONS
 
 ### CAPTION (most important)
-The global portrait of the song: genre, emotion, specific instruments with texture descriptors, vocal character, production/mixing style, era reference if relevant, tempo feel.
+The global portrait of the song: genre, emotion, specific instruments with texture descriptors, vocal character, production/mixing style, era reference.
 - 80–150 words, written as flowing prose (not a list)
-- Do NOT include BPM numbers or key names — those go in their own fields
+- Do NOT include BPM numbers, key names, or time signatures — those go in their own fields
 - Cover at least 6 of these dimensions: genre/subgenre, emotional atmosphere, instruments, vocal character, production style, era reference, tempo feel
-- No conflicting descriptors simultaneously
+- **CRITICAL**: Use specific texture words (e.g., warm, crisp, airy, punchy, muddy, raw). 'Specific beats vague' is the rule.
+- **CRITICAL**: Do NOT include conflicting descriptors simultaneously (e.g. classical strings + hardcore metal) unless properly evolved over time.
 
 ### LYRICS
 The temporal script: structure tags control sections, lyric text carries content, performance modifiers control delivery.
 - Sections: [Intro], [Verse 1], [Pre-Chorus], [Chorus], [Verse 2], [Bridge], [Final Chorus], [Outro]
-- One optional performance modifier per tag, separated by " - " (e.g. [Chorus - anthemic])
+- Keep structure tags concise. One optional performance modifier per tag, separated by " - " (e.g. [Chorus - anthemic])
 - Blank line between every section
-- 6–10 syllables per line; keep counts consistent within matching positions across verses
-- UPPERCASE only at peak emotional moments
-- (Parentheses) for background/harmony vocals
-- No stacked modifiers on tags; put style details in Caption
-- No AI-cliché phrases: "neon skies", "electric hearts", "endless dreams", "chase the light"
-- Single consistent metaphor thread throughout
+- **CRITICAL**: 6–10 syllables per line; keep counts strictly consistent within matching positions across verses.
+- UPPERCASE only at peak emotional moments to indicate vocal intensity.
+- (Parentheses) for background/harmony vocals.
+- No stacked modifiers on tags; put complex style details in Caption.
+- **CRITICAL**: Ensure Lyrics match the Style and Emotion defined in Caption (No Conflicts).
+- No AI-cliché phrases: "neon skies", "electric hearts", "endless dreams", "chase the light".
+- Stick to a single consistent metaphor thread throughout the song.
 
 ### BPM
 Single integer. Slow ballad 60–80 · Mid-tempo 85–110 · Upbeat 115–140 · Dance 120–145 · Fast 150+
@@ -52,7 +54,12 @@ Format: "[Note] [Major/Minor]" — e.g. "A Minor", "Db Major", "F# Minor"
 One of: 4/4 · 3/4 · 6/8 · 5/4 · 7/8
 
 ### VOCAL LANGUAGE
-Language of the vocals — e.g. "English", "Mandarin", "Spanish". Use "Instrumental" if no vocals.
+Language of the vocals.
+${
+  language === "automatic"
+    ? "Determine the most appropriate language based on the lyrics or concept. Output the English name for it (e.g. English, Chinese)."
+    : `**CRITICAL INSTRUCTION**: You MUST use exactly this language name: ${LANGUAGES[language]}`
+}
 
 ### DURATION (seconds)
 Single integer. Demo 60–90 · Standard song 150–210 · Extended 240–300

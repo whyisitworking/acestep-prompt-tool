@@ -10,10 +10,11 @@ import { buildPrompt, parseOutput } from "./utils/promptGenerator";
 export default function App() {
   const [concept, setConcept] = useState("");
   const [songStyle, setSongStyle] = useState("");
+  const [language, setLanguage] = useState("automatic");
   const [llmOutput, setLlmOutput] = useState("");
   const [tab, setTab] = useState<"build" | "extract" | "guide">("build");
 
-  const prompt = buildPrompt(concept, songStyle);
+  const prompt = buildPrompt(concept, songStyle, language);
   const parsed = llmOutput ? parseOutput(llmOutput) : {};
 
   return (
@@ -30,6 +31,8 @@ export default function App() {
               setConcept={setConcept}
               songStyle={songStyle}
               setSongStyle={setSongStyle}
+              language={language}
+              setLanguage={setLanguage}
               prompt={prompt}
             />
           )}

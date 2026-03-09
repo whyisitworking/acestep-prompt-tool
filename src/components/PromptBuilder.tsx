@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { EXAMPLES } from "../utils/constants";
+import { EXAMPLES, LANGUAGES } from "../utils/constants";
 
 interface PromptBuilderProps {
   concept: string;
   setConcept: (val: string) => void;
   songStyle: string;
   setSongStyle: (val: string) => void;
+  language: string;
+  setLanguage: (val: string) => void;
   prompt: string;
 }
 
@@ -14,6 +16,8 @@ export default function PromptBuilder({
   setConcept,
   songStyle,
   setSongStyle,
+  language,
+  setLanguage,
   prompt,
 }: PromptBuilderProps) {
   const [promptCopied, setPromptCopied] = useState(false);
@@ -61,6 +65,23 @@ export default function PromptBuilder({
           className="text-input"
           style={{ minHeight: "60px" }}
         />
+      </div>
+
+      <div className="input-group" style={{ marginTop: "24px" }}>
+        <label className="input-label">Vocal Language</label>
+        <select
+          value={language}
+          onChange={(e) => setLanguage(e.target.value)}
+          className="text-input"
+          style={{ width: "100%", padding: "12px", borderRadius: "12px" }}
+        >
+          <option value="automatic">Automatic (Infer from Concept & Lyrics)</option>
+          {Object.entries(LANGUAGES).map(([code, name]) => (
+            <option key={code} value={code}>
+              {name}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="prompt-preview-container">
