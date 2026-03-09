@@ -43,7 +43,7 @@ body {
   background: var(--panel-bg);
   backdrop-filter: blur(1.5rem);
   -webkit-backdrop-filter: blur(1.5rem);
-  border: 1px solid var(--panel-border);
+  border-bottom: 1px solid var(--panel-border);
 }
 
 .shadow-lg {
