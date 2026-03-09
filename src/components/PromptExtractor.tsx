@@ -71,10 +71,10 @@ export default function PromptExtractor({
           <button
             onClick={handleDownloadJson}
             disabled={!hasValidData}
-            className={`copy-btn ${hasValidData ? "copied" : ""}`}
+            className="copy-prompt-btn glass-panel download-json-btn"
             title={hasValidData ? "Download JSON File" : "Paste a valid response first"}
           >
-            {hasValidData ? "Download JSON" : "Waiting for valid data..."}
+            ↓ Download JSON
           </button>
         </div>
       </div>
