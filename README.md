@@ -25,6 +25,8 @@ This tool solves the blank-page problem. You describe a song in plain English, i
 
 - **Live prompt generation** — your concept is embedded into the template as you type
 - **Smart field parser** — paste the LLM's full response and every field is extracted automatically
+- **Language selection** — support for 50+ languages ensuring culturally coherent tracks natively
+- **JSON Export** — immediately download the extracted prompt as a fully mapped `.json` file
 - **Per-field copy buttons** — one click copies exactly what goes into each ACE-Step field
 - **Example concepts** — six clickable starters to get you going fast
 - **Zero dependencies at runtime** — plain React, no backend, no API keys
@@ -35,7 +37,7 @@ This tool solves the blank-page problem. You describe a song in plain English, i
 ## The 3-Tab Workflow
 
 ### Tab 1 · Build Prompt
-Type your song concept — anything from a single mood word to a detailed paragraph. The prompt updates live. When you're happy, hit **Copy prompt** and paste it into your LLM of choice.
+Type your song concept — anything from a single mood word to a detailed paragraph. Optionally tweak the **Song Style & Influences** and **Vocal Language** fields. The prompt updates live. When you're happy, hit **Copy prompt** and paste it into your LLM of choice.
 
 ### Tab 2 · Extract Fields
 Paste the LLM's full response. The tool automatically extracts all 8 fields:
@@ -51,10 +53,12 @@ Paste the LLM's full response. The tool automatically extracts all 8 fields:
 | Duration | Target length in seconds |
 | Reasoning | The LLM's creative rationale — for your reference only |
 
+Once extracted, you can either:
+- **Copy individual fields** directly into the ACE-Step 1.5 interface.
+- Click **Download JSON** to instantly grab the `acestep_prompt.json` configuration file, precisely mapped for automated processing and archiving.
+
 ### Tab 3 · How It Works
 Step-by-step guide and tips for getting the best results.
-
----
 
 ## Getting Started
 
@@ -232,4 +236,4 @@ For significant changes, please open an issue first to discuss what you'd like t
 
 ---
 
-<p align="center">Made for people who want to make music, not fight with prompts.</p>
+Made with ❤️ for people who want to make music, not fight with prompts.
