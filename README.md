@@ -1,4 +1,4 @@
-# 🎵 ACE-Step Song Prompt Builder
+# 🎵 ACE-Step Song Prompt Tool
 
 > A minimalist tool that helps you generate studio-quality inputs for [ACE-Step 1.5](https://github.com/ace-step/ACE-Step) — the open-source, locally-runnable AI music generation system.
 
